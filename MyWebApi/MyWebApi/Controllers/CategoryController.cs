@@ -66,7 +66,7 @@ namespace MyWebApi.Controllers
             _context.Remove(category);
             await _context.SaveChangesAsync();
 
-            return Ok("Delete Success!");
+            return Ok("Delete Success!!");
         }
 
 
