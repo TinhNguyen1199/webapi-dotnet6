@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyWebApi.Data;
 using MyWebApi.Models;
@@ -23,6 +24,7 @@ namespace MyWebApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<Category>> GetById(int id)
         {
             var category = await _context.Categories.FindAsync(id);
@@ -31,6 +33,7 @@ namespace MyWebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create(CategoryModel request)
         {
             var newcategory = new Category
